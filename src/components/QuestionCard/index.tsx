@@ -19,40 +19,35 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
 }) => {
   return (
     <>
-      <Box bg={"white"} w={"100%"}>
-        <Box
-          mb={6}
-          fornSize={"md"}
-          fontWeight={"bold"}
-          textTransform={"uppercase"}
-        >
+      <Box bg="white" w="100%">
+        <Box mb={6} fontSize="md" fontWeight="bold" textTransform="uppercase">
           Your Progress : {questionNumber} / {totalQuestions}
         </Box>
       </Box>
-      <Box fortSize={"sm"} mb={1}>
+      <Box fontSize="sm" mb={1}>
         {category}
       </Box>
-      <Heading as={"h1"} size={"lg"}>
+      <Heading as="h1" size="lg">
         <p dangerouslySetInnerHTML={{ __html: question }} />
       </Heading>
-      <Flex direction={"column"}>
-        <Box w={"100%"} mt={4} mb={4}>
+      <Flex direction="column">
+        <Box w="100%" mt={4} mb={4}>
           <AppButton
-            value={"true"}
-            colorScheme={"purple"}
-            variant={"outline"}
+            value="True"
+            colorScheme="purple"
+            variant="outline"
             onClick={checkAnswer}
-            width={"full"}
+            width="full"
           />
         </Box>
         <Spacer />
-        <Box w={"100%"} mb={4}>
+        <Box w="100%" mb={4}>
           <AppButton
-            value={"false"}
-            colorScheme={"purple"}
-            variant={"outline"}
+            value="False"
+            colorScheme="purple"
+            variant="outline"
             onClick={checkAnswer}
-            width={"full"}
+            width="full"
           />
         </Box>
       </Flex>

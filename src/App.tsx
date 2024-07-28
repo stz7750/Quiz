@@ -1,4 +1,5 @@
 import "./App.css";
+import "./index.css";
 import { useEffect, useState } from "react";
 import { IQuestion, IUserAnswer } from "./services/type.ts";
 import { getQuestionList } from "./services/FectchQuestions.tsx";
@@ -43,12 +44,12 @@ function App() {
     if (correct) setScore((previous) => previous + 1);
     //
     const answserObject = {
-      question: questions[questionNumber]?.questions,
+      question: questions[questionNumber]?.question,
       answer: chosenAnswer,
       correct,
       correctAnswer: questions[questionNumber]?.correct_answer,
     };
-    setUserAnswer([...answserObject]);
+    setUserAnswer((prev) => [...prev, answserObject]);
   };
   const nextQuestion = () => {
     const nextQuestion = questionNumber + 1;
@@ -67,13 +68,13 @@ function App() {
   return (
     <main>
       {loading && (
-        <div className={"app-spinner"}>
+        <div className="app-spinner">
           <AppSpinner
-            speed={"0.65s"}
-            emptyColor={"gray.200"}
-            color={"purple"}
-            size={"lg"}
-            thickness={"5px"}
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="purple"
+            size="lg"
+            thickness="5px"
           ></AppSpinner>
         </div>
       )}
@@ -82,15 +83,9 @@ function App() {
       !gameOver &&
       !loading &&
       !startQuiz ? (
-        <div className={"greetion-Box"}>
-          <Box
-            boxShadow={"base"}
-            p={"6"}
-            rounded={"md"}
-            bg={"white"}
-            maxW={"560px"}
-          >
-            <Heading as={"h2"} size={"lg"} mb={2}>
+        <div className="greeting-Box">
+          <Box boxShadow="base" p="6" rounded="md" bg="white" maxW="560px">
+            <Heading as="h2" size="lg" mb={2}>
               퀴즈 앱
             </Heading>
             <p>
@@ -98,35 +93,29 @@ function App() {
               제시됩니다.
             </p>
             <AppButton
-              value={"start Quiz Game"}
-              colorScheme={"purple"}
-              variant={"solid"}
+              colorScheme="purple"
+              variant="solid"
               onClick={startQuizGame}
+              value={"start Quiz Game"}
             />
           </Box>
         </div>
       ) : null}
       {!loading && !gameOver && startQuiz && (
-        <Box
-          boxShadow={"base"}
-          p={"6"}
-          rounded={"md"}
-          bg={"white"}
-          maxW={"560px"}
-        >
+        <Box boxShadow="base" p="6" rounded="md" bg="white" maxW="560px">
           <QuestionCard
-            question={questions[questionNumber].questions}
+            question={questions[questionNumber].question}
             category={questions[questionNumber].category}
             checkAnswer={checkAnswer}
             totalQuestions={totalQuestions}
             questionNumber={questionNumber}
           />
           <AppButton
-            value={"Next Question"}
-            colorScheme={"purple"}
-            variant={"soild"}
+            value="Next Question"
+            colorScheme="purple"
+            variant="solid"
             onClick={nextQuestion}
-            className={"next-button"}
+            className="next-button"
             disabled={
               userAnswer.length === questionNumber + 1 &&
               questionNumber !== totalQuestions
@@ -138,25 +127,19 @@ function App() {
       )}
       {gameOver && (
         <>
-          <Box
-            boxShadow={"base"}
-            p={"6"}
-            rounded={"md"}
-            bg={"white"}
-            maxW={"560px"}
-          >
+          <Box boxShadow="base" p="6" rounded="md" bg="white" maxW="560px">
             <Box mb={"4"}>
-              <Box fontWeight={"bold"} as={"h3"} fontSize={"4xl"}>
+              <Box fontWeight="bold" as="h3" fontSize="4xl">
                 Game Over!
               </Box>
-              <Box as={"h3"} fontsize={"xl"}>
+              <Box as="h3" fontSize="xl">
                 your score is {score}/{totalQuestions}
               </Box>
             </Box>
             {userAnswer.map((answer, idx) => (
               <Box key={idx}>
-                <div className={"answer-list"}>
-                  <Box fontSize={"md"} fontWeight={"bold"}>
+                <div className="answer-list">
+                  <Box fontSize="md" fontWeight="bold">
                     Q.
                     <p dangerouslySetInnerHTML={{ __html: answer.question }} />
                   </Box>
@@ -168,9 +151,9 @@ function App() {
               </Box>
             ))}
             <AppButton
-              value={"replay Quiz"}
-              colorScheme={"purple"}
-              variant={"solid"}
+              value="replay Quiz"
+              colorScheme="purple"
+              variant="solid"
               onClick={replayQuiz}
             />
           </Box>

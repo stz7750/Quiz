@@ -1,4 +1,4 @@
-greetion-box {
+greeting-Box {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,11 +7,11 @@ greetion-box {
 
 }
 
-.greetion-box p {
+.greeting-Box p {
     margin-bottom: 30px;
 }
 
-.greetion-box > dix {
+.greeting-Box > dix {
     padding: 40px;
 }
 

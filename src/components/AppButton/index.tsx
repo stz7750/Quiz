@@ -21,11 +21,16 @@ const AppButton: React.FC<AppButtonProps> = ({
   onClick,
 }) => {
   return (
-    <>
-      <Button colorScheme={colorScheme} variant={variant} onClick={onClick}>
-        {value}
-      </Button>
-    </>
+    <Button
+      className={className}
+      disabled={disabled}
+      width={width}
+      colorScheme={colorScheme}
+      variant={variant}
+      onClick={onClick}
+    >
+      {value}
+    </Button>
   );
 };
 

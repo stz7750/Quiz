@@ -29,4 +29,4 @@ const AppSpinner: React.FC<AppSpinnerProps> = ({
   );
 };
 
-export default Spinner;
+export default AppSpinner;
