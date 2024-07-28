@@ -1,0 +1,16 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh !important;
+    background-color: lightpink !important;
+}
+
+h1 {
+    font-size: 2rem !important
+}
+
+ul,
+li {
+    list-style: none;
+}

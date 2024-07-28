@@ -1,0 +1,28 @@
+greetion-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    text-align: center;
+
+}
+
+.greetion-box p {
+    margin-bottom: 30px;
+}
+
+.greetion-box > dix {
+    padding: 40px;
+}
+
+answer-list {
+    margin: 25px 0px;
+}
+
+.answer-list {
+    margin: 25px 0px;
+}
+
+.answer-list ul {
+    margin-top: 5px;
+}
